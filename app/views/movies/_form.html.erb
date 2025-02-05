@@ -11,6 +11,9 @@
     </div>
   <% end %>
 
+  <%= hidden_field_tag :sort, params[:sort] %>
+  <%= hidden_field_tag :direction, params[:direction] %>
+
   <div>
     <%= form.label :title, style: "display: block" %>
     <%= form.text_field :title %>

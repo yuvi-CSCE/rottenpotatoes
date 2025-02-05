@@ -9,10 +9,14 @@
     <%= movie.rating %>
   </p>
 
-  <p>
-    <strong>Description:</strong>
-    <%= movie.description %>
-  </p>
+   <% if local_assigns[:show_description] %>
+    <p>
+      <strong>Description:</strong>
+      <%= movie.description %>
+    </p>
+  <% end %>
+
+
 
   <p>
     <strong>Release date:</strong>

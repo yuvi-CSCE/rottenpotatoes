@@ -1,16 +1,29 @@
 <p style="color: green"><%= notice %></p>
+<% content_for :page_class, "centered" %>
 
 <% content_for :title, "Movies" %>
 
 <h1>Movies</h1>
 
-<div id="movies">
-  <% @movies.each do |movie| %>
-    <%= render movie %>
-    <p>
-      <%= link_to "Show this movie", movie %>
-    </p>
-  <% end %>
-</div>
+<table border="1">
+  <thead>
+    <tr>
+      <th>Title <%= link_to "Sort", movies_path(sort: "title", direction: params[:direction] == "asc" ? "desc" : "asc"), class: "btn btn-primary" %></th>
+      <th>Rating <%= link_to "Sort", movies_path(sort: "rating", direction: params[:direction] == "asc" ? "desc" : "asc"), class: "btn btn-primary" %></th>
+      <th>Release Date <%= link_to "Sort", movies_path(sort: "release_date", direction: params[:direction] == "asc" ? "desc" : "asc"), class: "btn btn-primary" %></th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @movies.each do |movie| %>
+      <tr id="<%= dom_id movie %>">
+        <td><%= movie.title %></td>
+        <td><%= movie.rating %></td>
+        <td><%= movie.release_date %></td>
+        <td><%= link_to "Show this movie",movie_path(movie,sort: params[:sort], direction: params[:direction])  %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
 
-<%= link_to "New movie", new_movie_path %>
+<%= link_to "New movie", new_movie_path(sort: params[:sort], direction: params[:direction])  %>

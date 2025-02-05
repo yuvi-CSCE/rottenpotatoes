@@ -8,3 +8,26 @@
  *
  * Consider organizing styles into separate files for maintainability.
  */
+ .centered {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; 
+    text-align: center;
+    flex-direction: column;
+  }
+  table {
+    width: 80%;
+    border-collapse: collapse;
+    margin: 20px auto;
+  }
+  
+  th, td {
+    border: 1px solid black;
+    padding: 10px;
+    text-align: left;
+  }
+  
+  th {
+    background-color: #f4f4f4;
+  }

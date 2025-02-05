@@ -23,6 +23,8 @@
   </head>
 
   <body>
+   <div class="container <%= content_for?(:page_class) ? yield(:page_class) : '' %>">
     <%= yield %>
+  </div>
   </body>
 </html>
