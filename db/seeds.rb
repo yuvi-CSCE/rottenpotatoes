@@ -8,6 +8,9 @@
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
 # Seed the RottenPotatoes DB with some movies.
+
+Movie.destroy_all 
+
 more_movies = [
   {:title => 'My Neighbor Totoro', :rating => 'G',
     :release_date => '16-Apr-1988'},
