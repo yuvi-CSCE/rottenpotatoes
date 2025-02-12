@@ -17,7 +17,7 @@
     flex-direction: column;
   }
   table {
-    width: 80%;
+    width: 40%;
     border-collapse: collapse;
     margin: 20px auto;
   }
@@ -30,4 +30,16 @@
   
   th {
     background-color: #f4f4f4;
+  }
+  .sorted-column {
+    background-color: yellow; /* Highlighted background */
+    font-weight: bold;
+  }
+
+  .asc{
+    background-color: rgba(20, 205, 47, 0.585);
+  }
+  
+  .desc{
+    background-color: rgba(197, 27, 27, 0.696);
   }

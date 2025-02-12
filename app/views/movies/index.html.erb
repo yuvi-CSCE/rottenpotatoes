@@ -8,18 +8,30 @@
 <table border="1">
   <thead>
     <tr>
-      <th>Title <%= link_to "Sort", movies_path(sort: "title", direction: params[:direction] == "asc" ? "desc" : "asc"), class: "btn btn-primary" %></th>
-      <th>Rating <%= link_to "Sort", movies_path(sort: "rating", direction: params[:direction] == "asc" ? "desc" : "asc"), class: "btn btn-primary" %></th>
-      <th>Release Date <%= link_to "Sort", movies_path(sort: "release_date", direction: params[:direction] == "asc" ? "desc" : "asc"), class: "btn btn-primary" %></th>
+      <th class="<%= params[:sort] == 'title' ? (params[:direction] == 'asc' ? 'asc' : 'desc') : '' %>">
+        Title 
+        <%= link_to params[:direction] == "asc" ? "▲" : "▼", movies_path(sort: "title", direction: params[:direction] == "asc" ? "desc" : "asc"), class: "btn btn-primary" %>    
+      </th>
+     <th class="<%= params[:sort] == 'rating' ? (params[:direction] == 'asc' ? 'asc' : 'desc') : '' %>">
+        Rating 
+        <%= link_to params[:direction] == "asc" ? "▲" : "▼", movies_path(sort: "rating", direction: params[:direction] == "asc" ? "desc" : "asc"), class: "btn btn-primary" %>
+      </th>
+      <th class="<%= params[:sort] == 'release_date' ? (params[:direction] == 'asc' ? 'asc' : 'desc') : '' %>">
+        Release Date 
+        <%= link_to params[:direction] == "asc" ? "▲" : "▼", movies_path(sort: "release_date", direction: params[:direction] == "asc" ? "desc" : "asc"), class: "btn btn-primary" %>
+      </th>
       <th>Actions</th>
     </tr>
   </thead>
   <tbody>
     <% @movies.each do |movie| %>
       <tr id="<%= dom_id movie %>">
-        <td><%= movie.title %></td>
-        <td><%= movie.rating %></td>
-        <td><%= movie.release_date %></td>
+        <td class="<%= params[:sort] == 'title' ? (params[:direction] == 'asc' ? 'asc' : 'desc') : '' %>">
+          <%= movie.title %></td>
+        <td class="<%= params[:sort] == 'rating' ? (params[:direction] == 'asc' ? 'asc' : 'desc') : '' %>">
+          <%= movie.rating %></td>
+        <td class="<%= params[:sort] == 'release_date' ? (params[:direction] == 'asc' ? 'asc' : 'desc') : '' %>">
+          <%= movie.release_date %></td>
         <td><%= link_to "Show this movie",movie_path(movie,sort: params[:sort], direction: params[:direction])  %></td>
       </tr>
     <% end %>
