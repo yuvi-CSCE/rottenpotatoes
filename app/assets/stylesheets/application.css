@@ -8,6 +8,14 @@
  *
  * Consider organizing styles into separate files for maintainability.
  */
+ body {
+  font-family:Impact, Haettenschweiler, 'Arial Bold', sans-serif;
+  background-color: #813030e3; 
+  color: #333; 
+  margin: 0;
+  padding: 20px;
+  text-align: center;
+}
  .centered {
     display: flex;
     justify-content: center;
@@ -20,21 +28,16 @@
     width: 40%;
     border-collapse: collapse;
     margin: 20px auto;
+    text-align: center;
   }
   
   th, td {
     border: 1px solid black;
     padding: 10px;
     text-align: left;
-  }
-  
-  th {
     background-color: #f4f4f4;
   }
-  .sorted-column {
-    background-color: yellow; /* Highlighted background */
-    font-weight: bold;
-  }
+
 
   .asc{
     background-color: rgba(20, 205, 47, 0.585);
